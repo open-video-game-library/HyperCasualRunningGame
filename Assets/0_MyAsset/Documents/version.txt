@@ -1,0 +1,3 @@
+0.0.3：Attribute追加、イメージの追加
+0.0.2：GameManager・DataManagerの追加、ゲームシーンのセクション作成
+0.0.1：リリース
