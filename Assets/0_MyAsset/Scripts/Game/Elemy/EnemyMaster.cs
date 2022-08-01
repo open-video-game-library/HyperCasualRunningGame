@@ -14,8 +14,7 @@ public class EnemyMaster : MonoBehaviour
         i = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void OnValidate()
     {
         foreach (Transform child in transform)
         {
@@ -23,6 +22,15 @@ public class EnemyMaster : MonoBehaviour
             {
                 enemyManagers.Add(enemyManager);
             }
+        }
+    }
+
+    //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    public void SetEnemyTriggerWidth(float num)
+    {
+        foreach (var enemyManager in enemyManagers)
+        {
+            enemyManager.SetWidth(num);
         }
     }
 }

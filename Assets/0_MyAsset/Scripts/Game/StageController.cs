@@ -39,6 +39,9 @@ public class StageController : MonoBehaviour
     [HideInInspector] public Color center_color;
     [HideInInspector] public Color edge_color;
 
+    [Space(10)]
+    [SerializeField] EnemyMaster enemyMaster;
+
     [Space(20)]
     public EffectParameters spark_parameters;
 
@@ -81,6 +84,7 @@ public class StageController : MonoBehaviour
         UpdateStageSize_GoalLines();
 
         if (gateMaster != null) gateMaster.SetGatesWidth(width);
+        if (enemyMaster != null) enemyMaster.SetEnemyTriggerWidth(width);
     }
     void UpdateStageSize_GoalLines()
     {

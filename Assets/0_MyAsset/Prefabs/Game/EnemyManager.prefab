@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy_original: {fileID: 8928285141653239074, guid: ebf630531ed1e4f8392bb2c632fb859b, type: 3}
   anchorObject: {fileID: 1087717707698744877}
+  fightTrigger_transform: {fileID: 1087717705952774017}
   wall: {fileID: 1087717707511508385}
   startCount: 10
   enemies: []
@@ -392,7 +393,7 @@ GameObject:
   - component: {fileID: 491849400197471216}
   - component: {fileID: 2184878524248884477}
   m_Layer: 0
-  m_Name: Wall_01
+  m_Name: Wall_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

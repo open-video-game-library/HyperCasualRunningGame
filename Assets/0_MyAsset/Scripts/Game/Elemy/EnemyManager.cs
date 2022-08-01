@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] EnemyController enemy_original;
     [SerializeField] GameObject anchorObject;
+    [SerializeField] Transform fightTrigger_transform;
     [SerializeField] GameObject wall;
 
     [Space(10)]
@@ -37,6 +38,18 @@ public class EnemyManager : MonoBehaviour
     }
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    public void SetWidth(float num)
+    {
+        Vector3 scale = fightTrigger_transform.localScale;
+        scale.x = num;
+        fightTrigger_transform.localScale = scale;
+
+        scale = wall.transform.localScale;
+        scale.x = num;
+        wall.transform.localScale = scale;
+        Debug.Log(num);
+    }
+
     void MakeEnemy(int num)
     {
         for (int i = 0; i < num; i++)

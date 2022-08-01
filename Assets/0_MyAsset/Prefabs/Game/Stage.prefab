@@ -1482,6 +1482,7 @@ MonoBehaviour:
   gateMaster: {fileID: 0}
   center_color: {r: 0, g: 0, b: 0, a: 0}
   edge_color: {r: 0, g: 0, b: 0, a: 0}
+  enemyMaster: {fileID: 0}
   spark_parameters:
     useEffect: 1
     size: 2
