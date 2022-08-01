@@ -17,6 +17,16 @@ public class GateMaster : MonoBehaviour
         i = this;
     }
 
+    void OnValidate()
+    {
+        foreach (Transform child in transform)
+        {
+            if (!child.TryGetComponent(out GateManager gateManager)) continue;
+            if (gates.Contains(gateManager)) continue;
+            gates.Add(gateManager);
+        }
+    }
+
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void SetGatesWidth(float num)
     {
