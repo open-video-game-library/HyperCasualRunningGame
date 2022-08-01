@@ -95,6 +95,43 @@ public class EnemyController : MonoBehaviour
         manager.enemies.Remove(this);
         manager.CheckPass();
         gameObject.SetActive(false);
+
+        PlayFountainSplash();
+        PlayPuddle();
+    }
+
+    void PlayFountainSplash()
+    {
+        EffectParameters fountainSplash_parameters = DataManager.i.enemyData.fountainSplash_parameters;
+        if (!fountainSplash_parameters.useEffect) return;
+
+        ParticleSystem fountainSplash;
+        if (BloodPoolManager.i.fountainSplash_particleSystem_pool.Count > 0) fountainSplash = BloodPoolManager.i.Dequeue_fountainSplash();
+        else fountainSplash = Instantiate(BloodPoolManager.i.fountainSplash_particleSystem_original);
+        var fountainSplashMain = fountainSplash.main;
+        fountainSplash.transform.localScale = Vector3.one * fountainSplash_parameters.size;
+        fountainSplashMain.simulationSpeed = fountainSplash_parameters.speed;
+        fountainSplashMain.startColor = DataManager.i.enemyData.color;
+        fountainSplash.transform.position = transform.position;
+        fountainSplash.Play();
+    }
+
+    void PlayPuddle()
+    {
+        EffectParameters puddle_parameters = DataManager.i.enemyData.puddle_parameters;
+        if (!puddle_parameters.useEffect) return;
+
+        ParticleSystem puddle;
+        if (BloodPoolManager.i.puddle_particleSystem_pool.Count > 0) puddle = BloodPoolManager.i.Dequeue_puddle();
+        else puddle = Instantiate(BloodPoolManager.i.puddle_particleSystem_original);
+        var puddleMain = puddle.main;
+        puddle.transform.localScale = Vector3.one * puddle_parameters.size;
+        puddleMain.simulationSpeed = puddle_parameters.speed;
+        puddleMain.startColor = DataManager.i.enemyData.color;
+        Vector3 targetPos = transform.position;
+        targetPos.y = 0.01f;
+        puddle.transform.position = targetPos;
+        puddle.Play();
     }
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー

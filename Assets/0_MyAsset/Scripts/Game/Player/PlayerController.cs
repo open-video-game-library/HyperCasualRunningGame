@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
         if (!isPoolInitialize)
         {
             PlayFountainSplash();
-            PlayerPuddle();
+            PlayPuddle();
         }
     }
 
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         fountainSplash.Play();
     }
 
-    void PlayerPuddle()
+    void PlayPuddle()
     {
         EffectParameters puddle_parameters = DataManager.i.playerData.puddle_parameters;
         if (!puddle_parameters.useEffect) return;
