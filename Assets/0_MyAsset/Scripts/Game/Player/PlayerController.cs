@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.i.gameState == GameState.Goal) return;
         if (!CanvasManager.i.inputCanvas.isTouching) return;
+        if (playerState == PlayerState.Fight) return;
 
         Vector3 direction = PlayerManager.i.targetPosition - transform.position;
         //_rigidbody.AddForce(new Vector3(direction.x * DataManager.i.playerData.horizontalPower, 0, 0));

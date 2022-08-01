@@ -33,6 +33,7 @@ public class InputCanvasController : MonoBehaviour
 
     void UpdateMoveValue()
     {
+        if (GameManager.i.gameState == GameState.Play_inactive) return;
         if (!isTouching) return;
 
         Vector2 mousePos = Input.mousePosition;
