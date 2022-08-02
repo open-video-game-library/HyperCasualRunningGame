@@ -53,8 +53,13 @@ public class PlayerController : MonoBehaviour
         enemy.enemyState = EnemyState.WillDie;
         couple_enemy = enemy;
         enemy.couple_player = this;
-        StartCoroutine(DelayMethod(DataManager.i.enemyData.dieDelayTime_sec, () => { enemy.Die(); }));
-        StartCoroutine(DelayMethod(DataManager.i.playerData.dieDelayTime_sec, () => { Die(); }));
+        //StartCoroutine(DelayMethod(DataManager.i.enemyData.dieDelayTime_sec, () => { enemy.Die(); }));
+        StartCoroutine(DelayMethod(DataManager.i.playerData.dieDelayTime_sec, () =>
+        {
+            //TODO: It should be separated from playerCoroutine
+            enemy.Die();
+            Die();
+        }));
     }
 
     #region OnTouchTrigger
