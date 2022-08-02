@@ -11,12 +11,15 @@ public class SettingsCanvasController : MonoBehaviour
     [SerializeField] FieldBox player_speed_fieldBox;
     [SerializeField] FieldBox player_forceOfHorizontalMoving_fieldBox;
     [SerializeField] FieldBox player_forceOfGatheringCenter_fieldBox;
+    [Space(5)]
     [SerializeField] FieldBox player_startCount_fieldBox;
     [SerializeField] FieldBox player_color_fieldBox;
+    [Space(5)]
     [SerializeField] FieldBox player_bloodSplash_fieldBox;
     [SerializeField] FieldBox player_bloodSplash_size_fieldBox;
     [SerializeField] FieldBox player_bloodSplash_speed_fieldBox;
-    [SerializeField] FieldBox player_bloodPuddhe_fieldBox;
+    [Space(5)]
+    [SerializeField] FieldBox player_bloodPuddle_fieldBox;
     [SerializeField] FieldBox player_bloodPuddle_size_fieldBox;
     [SerializeField] FieldBox player_bloodPuddle_speed_fieldBox;
     #endregion
@@ -106,7 +109,7 @@ public class SettingsCanvasController : MonoBehaviour
         player_bloodSplash_fieldBox.SetValue(playerData.fountainSplash_parameters.useEffect);
         player_bloodSplash_size_fieldBox.SetValue(playerData.fountainSplash_parameters.size);
         player_bloodSplash_speed_fieldBox.SetValue(playerData.fountainSplash_parameters.speed);
-        player_bloodPuddhe_fieldBox.SetValue(playerData.puddle_parameters.useEffect);
+        player_bloodPuddle_fieldBox.SetValue(playerData.puddle_parameters.useEffect);
         player_bloodPuddle_size_fieldBox.SetValue(playerData.puddle_parameters.size);
         player_bloodPuddle_speed_fieldBox.SetValue(playerData.puddle_parameters.speed);
         #endregion
@@ -209,7 +212,7 @@ public class SettingsCanvasController : MonoBehaviour
     #region BloodPuddle
     public void OnFieldBoxValueChanged_player_bloodPuddle()
     {
-        DataManager.i.playerData.puddle_parameters.useEffect = (bool)player_bloodPuddhe_fieldBox.value;
+        DataManager.i.playerData.puddle_parameters.useEffect = (bool)player_bloodPuddle_fieldBox.value;
     }
 
     public void OnFieldBoxValueChanged_player_bloodPuddle_size()
@@ -369,6 +372,27 @@ public class SettingsCanvasController : MonoBehaviour
     {
         if (!wasInitialized) return;
         GameManager.i.openFailCanvasDelayTime_sec = (float)system_openFailCanvasDelayTime_sec_fieldBox.value;
+    }
+
+    public void OnFieldBoxValueChanged_system_resetSetting()
+    {
+        //TODO : I'm looking for the best solution of reset settings.
+        DataManager.i.playerData.speed = 6;
+        DataManager.i.playerData.horizontalPower = 500;
+        DataManager.i.playerData.gatherPower = 200;
+        DataManager.i.playerData.gatherPower_TowardEnemy = 200;
+        DataManager.i.playerData.dieDelayTime_sec = 0.1f;
+        DataManager.i.playerData.color = new Color(0, 192f / 255f, 255f / 255f);
+        DataManager.i.playerData.fountainSplash_parameters.size = 1;
+        DataManager.i.playerData.fountainSplash_parameters.speed = 1;
+        DataManager.i.playerData.puddle_parameters.size = 1;
+        DataManager.i.playerData.puddle_parameters.speed = 1;
+
+        StageController.i.length = 120;
+        StageController.i.width = 6;
+        StageController.i.UpdateStageSize();
+
+        Initialize();
     }
     #endregion
 }

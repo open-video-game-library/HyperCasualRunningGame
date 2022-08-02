@@ -22,7 +22,8 @@ public enum FieldType
     Popup,
     Color,
     Vector3,
-    Texture
+    Texture,
+    Button
 }
 
 [System.Serializable]
@@ -107,6 +108,7 @@ public class FieldBox : MonoBehaviour
     [SerializeField] List<Slider> sliders = new List<Slider>();
     [SerializeField] List<Toggle> toggles = new List<Toggle>();
     [SerializeField] List<Image> images = new List<Image>();
+    [SerializeField] List<Button> buttons = new List<Button>();
     [SerializeField] List<TMP_Dropdown> dropdowns = new List<TMP_Dropdown>();
 
     [Space(30), Header("FieldBox Info")]
@@ -129,6 +131,10 @@ public class FieldBox : MonoBehaviour
     void Start()
     {
         defaultHeight = rectTransform.sizeDelta.y;
+        if (fieldType == FieldType.Button)
+        {
+            buttons[0].onClick.AddListener(() => { onFieldBoxValueChanged.Invoke(); });
+        }
     }
     void Update()
     {
@@ -181,7 +187,6 @@ public class FieldBox : MonoBehaviour
         {
             toggles[0].isOn = (bool)value;
         }
-
     }
 
     public void OnFieldBoxValueChanged(int id)

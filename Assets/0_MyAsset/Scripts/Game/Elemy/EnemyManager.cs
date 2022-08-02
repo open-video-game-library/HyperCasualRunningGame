@@ -47,7 +47,6 @@ public class EnemyManager : MonoBehaviour
         scale = wall.transform.localScale;
         scale.x = num;
         wall.transform.localScale = scale;
-        Debug.Log(num);
     }
 
     void MakeEnemy(int num)
