@@ -74,6 +74,8 @@ public class EnemyController : MonoBehaviour
 
     void Gather()
     {
+        if (enemyState == EnemyState.Fight) return;
+
         Vector3 direction = manager.EnemyCenterPos() - transform.position;
         direction.y = 0;
         _rigidbody.AddForce(direction * DataManager.i.enemyData.gatherPower);
