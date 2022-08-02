@@ -56,7 +56,9 @@ public class PlayerController : MonoBehaviour
         //StartCoroutine(DelayMethod(DataManager.i.enemyData.dieDelayTime_sec, () => { enemy.Die(); }));
         StartCoroutine(DelayMethod(DataManager.i.playerData.dieDelayTime_sec, () =>
         {
-            //TODO: It should be separated from playerCoroutine
+            //TODO: It should be separated from playerCoroutine, but Die(); works before enemy.Die() works, and enemy won't die.
+            //->This caused by using ButtonField.
+            //->This caused by the difference of dieDelayTime. player dies before enemy dies, and the coroutine didn't work.
             enemy.Die();
             Die();
         }));
