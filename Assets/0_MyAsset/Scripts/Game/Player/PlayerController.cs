@@ -144,7 +144,6 @@ public class PlayerController : MonoBehaviour
         if (playerState == PlayerState.Fight) return;
 
         Vector3 direction = PlayerManager.i.targetPosition - transform.position;
-        //_rigidbody.AddForce(new Vector3(direction.x * DataManager.i.playerData.horizontalPower, 0, 0));
         if (direction.x > DataManager.i.playerData.horizontalMoveThreshold) _rigidbody.AddForce(new Vector3(DataManager.i.playerData.horizontalPower, 0, 0));
         else if (direction.x < -DataManager.i.playerData.horizontalMoveThreshold) _rigidbody.AddForce(new Vector3(-DataManager.i.playerData.horizontalPower, 0, 0));
         else _rigidbody.AddForce(new Vector3(direction.x * DataManager.i.playerData.horizontalPower, 0, 0));
@@ -152,6 +151,7 @@ public class PlayerController : MonoBehaviour
 
     void Gather()
     {
+        if (playerState == PlayerState.Fight) return;
         Vector3 direction = (PlayerManager.i.PlayerCenterPos() - transform.position).normalized;
         _rigidbody.AddForce(direction * DataManager.i.playerData.gatherPower);
     }

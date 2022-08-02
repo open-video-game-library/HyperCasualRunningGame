@@ -973,7 +973,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4399273506352122416
 CanvasRenderer:
@@ -1656,11 +1656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66515436ca764703b7cb904d9cad1e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldType: 6
-  fieldName: Color
-  onFieldBoxValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
   fieldName_tmpTxt: {fileID: 4399273506598251804}
   inputFields:
   - {fileID: 4399273506656886494}
@@ -1675,7 +1670,22 @@ MonoBehaviour:
   toggles: []
   images:
   - {fileID: 109526357505725745}
+  buttons: []
   dropdowns: []
+  fieldType: 6
+  fieldName: Color
+  onFieldBoxValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  showIfCondition:
+    _fieldBox: {fileID: 0}
+    _operator: 0
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    stringValue: 
+    colorValue: {r: 0, g: 0, b: 0, a: 0}
+    vector3Value: {x: 0, y: 0, z: 0}
 --- !u!1 &4399273506495964022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1759,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4399273506518006556
 CanvasRenderer:
@@ -3494,7 +3504,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4399273507881003716
 CanvasRenderer:
@@ -4259,7 +4269,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3267632567743039162
 CanvasRenderer:

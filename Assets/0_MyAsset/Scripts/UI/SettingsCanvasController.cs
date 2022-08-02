@@ -394,5 +394,47 @@ public class SettingsCanvasController : MonoBehaviour
 
         Initialize();
     }
+
+    public void OnFieldBoxValueChanged_system_preset01()
+    {
+        //TODO : I'm looking for the best solution of reset settings.
+        DataManager.i.playerData.speed = 9;
+        DataManager.i.playerData.horizontalPower = 500;
+        DataManager.i.playerData.gatherPower = 200;
+        DataManager.i.playerData.gatherPower_TowardEnemy = 200;
+        DataManager.i.playerData.dieDelayTime_sec = 0.1f;
+        DataManager.i.playerData.color = new Color(0, 255f / 255f, 100f / 255f);
+        DataManager.i.playerData.fountainSplash_parameters.size = 1;
+        DataManager.i.playerData.fountainSplash_parameters.speed = 1;
+        DataManager.i.playerData.puddle_parameters.size = 1;
+        DataManager.i.playerData.puddle_parameters.speed = 1;
+
+        StageController.i.length = 120;
+        StageController.i.width = 10;
+        StageController.i.UpdateStageSize();
+
+        Initialize();
+    }
+
+    public void OnFieldBoxValueChanged_system_preset02()
+    {
+        //TODO : I'm looking for the best solution of reset settings.
+        DataManager.i.playerData.speed = 12;
+        DataManager.i.playerData.horizontalPower = 500;
+        DataManager.i.playerData.gatherPower = 200;
+        DataManager.i.playerData.gatherPower_TowardEnemy = 200;
+        DataManager.i.playerData.dieDelayTime_sec = 0.1f;
+        DataManager.i.playerData.color = new Color(255f / 255f, 0, 0);
+        DataManager.i.playerData.fountainSplash_parameters.size = 1.5f;
+        DataManager.i.playerData.fountainSplash_parameters.speed = 0.8f;
+        DataManager.i.playerData.puddle_parameters.size = 1.5f;
+        DataManager.i.playerData.puddle_parameters.speed = 2;
+
+        StageController.i.length = 120;
+        StageController.i.width = 4;
+        StageController.i.UpdateStageSize();
+
+        Initialize();
+    }
     #endregion
 }
