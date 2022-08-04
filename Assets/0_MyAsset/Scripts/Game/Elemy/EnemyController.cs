@@ -83,7 +83,6 @@ public class EnemyController : MonoBehaviour
 
     void Run_TowardPlayer()
     {
-        if (GameManager.i.gameState != GameState.Play) return;
         if (enemyState != EnemyState.Fight) return;
 
         Vector3 direction = PlayerManager.i.PlayerCenterPos() - transform.position;

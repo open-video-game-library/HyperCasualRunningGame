@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
             //TODO: It should be separated from playerCoroutine, but Die(); works before enemy.Die() works, and enemy won't die.
             //->This caused by using ButtonField.
             //->This caused by the difference of dieDelayTime. player dies before enemy dies, and the coroutine didn't work.
+            //->So I have to make a die-system of enemy which works after player dies.
             enemy.Die();
             Die();
         }));
@@ -140,6 +141,7 @@ public class PlayerController : MonoBehaviour
         if (playerState == PlayerState.Run) return;
         if (playerState == PlayerState.Die) return;
 
+        _rigidbody.velocity = new Vector3(0, 0, 0);
         Vector3 direction = (PlayerManager.i.currentEnemySection.EnemyCenterPos() - transform.position).normalized;
         _rigidbody.AddForce(direction * DataManager.i.playerData.gatherPower_TowardEnemy);
     }

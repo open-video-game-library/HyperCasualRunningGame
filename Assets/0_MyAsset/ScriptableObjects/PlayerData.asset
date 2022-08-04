@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 6
   horizontalPower: 500
   gatherPower: 200
-  gatherPower_TowardEnemy: 50
+  gatherPower_TowardEnemy: 150
   dieDelayTime_sec: 0.2
   color: {r: 0, g: 0.7529412, b: 1, a: 1}
   fountainSplash_parameters:
