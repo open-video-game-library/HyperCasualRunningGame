@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: 
   gatherPower: 200
-  gatherPower_TowardPlayer: 50
+  gatherPower_TowardPlayer: 150
   dieDelayTime_sec: 0.2
   color: {r: 1, g: 0, b: 0, a: 1}
   fountainSplash_parameters:
