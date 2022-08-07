@@ -29,7 +29,13 @@ public class SequenceManager : MonoBehaviour
 
     public void Execute()
     {
-        commands[0].Play();
+        if (commands.Count == 0)
+        {
+            Debug.LogWarning($"No command exists!");
+            return;
+        }
+        if (commands[0] == null) Debug.LogWarning($"No command is set!");
+        else commands[0].Play();
         commands.RemoveAt(0);
     }
 }
